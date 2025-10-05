@@ -1,5 +1,7 @@
 
-
+let torneo = ligaDelSur
+let edicion = cuarta
+    alert("Bienvenido a "+ torneo + "actualmente disputando la " + edicion +"edicion")
 let jugador = prompt("Bienvenido a Liga del sur, ingresa tu nombre:")
 let equipo = prompt("Equipo al que queres seguir:")
     alert("Hola, " + jugador + "!" + " estás siguiendo al equipo " + equipo)
