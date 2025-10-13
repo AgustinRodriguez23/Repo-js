@@ -78,20 +78,6 @@ formulario.addEventListener("submit", function (event) {
 
 
 
-
-
-//console.log(equipos)
-// for (const equipo of equipos) {}
-//equipos.push ('Fecha libre')
-//let inscribirEquipo = prompt("Inscribir equipo para proxima edicion. Nombre de equipo:")
-//equipos.push (inscribirEquipo)
-
-
-//for (const equipo of equipos) {
-//console.log(equipo)
-//}
-
-
 //  let suspendido = prompt("Ingrese numero de tarjetas")
 //  if (suspendido == 5) {
 //   console.log("El jugador está suspendido.")
@@ -100,15 +86,6 @@ formulario.addEventListener("submit", function (event) {
  // }
 
 
-//let partidosGanados = parseInt(prompt("Ingrese numero de partidos ganados"))
-//let partidosEmpate = parseInt(prompt("Ingrese numero de partidos empatados"))
-
-//function sumarPuntos(ganados, empates) {
-//      let puntosTotales = ganados *3 + empates
-//      alert("Tu equipo tiene " + puntosTotales + " puntos")
- //   }
-//
-// sumarPuntos (partidosGanados, partidosEmpate)
 
 
 
