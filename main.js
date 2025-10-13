@@ -53,7 +53,6 @@ function tablaEquipos (equiposArray) {
                               <td>${equipo.posicion}</td>
                             </tr>`
     section.appendChild(card)
-    console.log ("feo")
     
   });
 }
@@ -62,7 +61,19 @@ tablaEquipos(equipos)
    
 
 
+const formulario = document.getElementById("miFormulario")
 
+formulario.addEventListener("submit", function (event) {
+    event.preventDefault()
+
+    const nombre = document.getElementById("nombre").value
+    const email = document.getElementById("email").value
+    const equipoInscripto = document.getElementById("equipo").value
+
+    const datosEquipo = {nombre, email, equipoInscripto}
+    localStorage.setItem ("equipoConfirmado", JSON.stringify(datosEquipo))
+    formulario.reset()
+});
 
 
 

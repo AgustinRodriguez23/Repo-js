@@ -21,16 +21,30 @@
         </section>
         </div>
             <div class="card-container">
-                <article class="card1"><a href="./pages/inscripcion.html">Inscribir equipo</a></article>
+                <article class="card1"><a href="#miFormulario">Inscribir equipo</a></article>
                 <article class="card2">Suspenciones</article>
-                <article class="card3">Premios</article>
+                <article class="card3"><a href="./pages/premios.html">Premios</a></article>
             </div>
     </main>
 
     <footer class="footer">
         <h4>TodoTorneos</h5>
         <a href="#">Contacto</a>
-        <a href="#">Home</a>
+        <a href="#">Inicio</a>
+        <div>
+            <form id="miFormulario">
+                <label for="nombre">Nombre capitan:</label>
+                <input type="text" id="nombre" name="nombre">
+
+                <label for="nombre">Nombre equipo:</label>
+                <input type="text" id="equipo" name="nombre">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </footer>
 </body>
 </html>
