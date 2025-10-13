@@ -71,12 +71,18 @@ table {
     background-color: rgb(247, 80, 20);
     border-radius: 8px;
     padding: 24px 42px;
+    a {
+        color: black;
+    }
 }
 
 .card3 {
     background-color: rgba(184, 158, 13, 0.74);
     border-radius: 8px;
     padding: 24px 42px;
+    a {
+        color: black;
+    }
 }
 
 .premios {

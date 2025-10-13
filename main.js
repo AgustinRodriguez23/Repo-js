@@ -54,13 +54,11 @@ function tablaEquipos (equiposArray) {
                             </tr>`
     section.appendChild(card)
     
-  });
+  })
 }
 
 tablaEquipos(equipos)
    
-
-
 const formulario = document.getElementById("miFormulario")
 
 formulario.addEventListener("submit", function (event) {
@@ -69,38 +67,12 @@ formulario.addEventListener("submit", function (event) {
     const nombre = document.getElementById("nombre").value
     const email = document.getElementById("email").value
     const equipoInscripto = document.getElementById("equipo").value
-
     const datosEquipo = {nombre, email, equipoInscripto}
-    localStorage.setItem ("equipoConfirmado", JSON.stringify(datosEquipo))
+
+    localStorage.setItem ("nuevoEquipo", JSON.stringify(datosEquipo))
     formulario.reset()
-});
+})
 
 
 
-
-//  let suspendido = prompt("Ingrese numero de tarjetas")
-//  if (suspendido == 5) {
-//   console.log("El jugador está suspendido.")
- // } else {
- //   console.log("El jugador puede jugar la fecha con normalidad.")
- // }
-
-
-
-
-
-
-//let posiciónFinal = parseInt(prompt("Ingrese posicion final para ver premios. (1,2,3,4)"))
-//function premiosTorneo(posición){
-//    let campeon = (posición === 1)
- //   if (campeon) {
- //       console.log("juego de 15 camisetas, cena para el equipo y reinscripcion gratuita");
- //   } else if (posición === 2) {
- //     console.log("juego de 12 shorts personalizados y pack de 12 cervezas");
-  //  }  else {
- //       console.log("medalla de participacion");
-  //  }   
-//}
-
-//premiosTorneo(posiciónFinal)
 
