@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="main.js"></script>
+    <script defer src="/js/main.js"></script>
     <title>TodoTorneos</title>
     <link rel="icon" href="/assets/images.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/style.css">
@@ -13,26 +13,11 @@
         <h3>TodoTorneos</h3>
     </header>
 
-    <main>        
+    <main>
         <div>
-            <h2>Actualmente disputando liga del sur</h2>
-        <section id="section" class="tabla">
-
-        </section>
-        </div>
-            <div class="card-container">
-                <article class="card1"><a href="#miFormulario">Inscribir equipo</a></article>
-                <article class="card2"><a href="">Suspenciones</a></article>
-                <article class="card3"><a href="./pages/premios.html">Premios</a></article>
-            </div>
-    </main>
-
-    <footer class="footer">
-        <h4>TodoTorneos</h5>
-        <a href="#">Contacto</a>
-        <a href="#">Inicio</a>
-        <div>
-            <form id="miFormulario">
+            <h2 class="title-ins">Inscribir equipo proxima edicion</h2>
+            <article>
+                <form id="miFormulario" class="formulario">
                 <label for="nombre">Nombre capitan:</label>
                 <input type="text" id="nombre" name="nombre">
 
@@ -44,7 +29,26 @@
 
                 <button type="submit">Enviar</button>
             </form>
+        </article>
+        </div>        
+        <div>
+            <h2 class="liga">Actualmente disputando liga del sur</h2>
+        <section id="section" class="tabla">
+
+        </section>
         </div>
+            <div class="card-container">
+                <article class="card1"><a href="#">Fotos torneo</a></article>
+                <article class="card2"><a href="">Suspenciones</a></article>
+                <article class="card3"><a href="./pages/premios.html">Canjear Premios</a></article>
+            </div>
+    </main>
+
+    <footer class="footer">
+        <h4>TodoTorneos</h5>
+        <a href="#">Contacto</a>
+        <a href="#">Inicio</a>
+        
     </footer>
 </body>
 </html>
