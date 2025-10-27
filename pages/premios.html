@@ -3,31 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script defer src="../js/main.js"></script>
+    <script src="/js/premios.js"></script> 
+    <script defer src="/js/main.js"></script>
     <title>TodoTorneos</title>
-    <link rel="icon" href="../assets/images.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="/assets/images.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <header>        
+        <nav>
+            <h3>TodoTorneos</h3>
+            <a id="cart" href="#"><img src="/assets/premios.png" alt="premios"><span id="cuenta-premios">0</span></a>
+        </nav>
+    </header>
     <main>
-        <div class="premios">
-            <h3>Liga del sur</h3>
-            <div>
-                <h5>Campeon</h5>
-                <p>juego de 15 camisetas, cena para el equipo y reinscripcion gratuita</p>
-            </div>
-            <div>
-                <h5>Subcampeon</h5>
-                <p>juego de 12 shorts personalizados y pack de 12 cervezas</p>
-            </div>
-            <div>
-                <h5>Otro</h5>
-                <p>medalla de participacion y reinscripcion 50%off</p> 
-            </div>       
-        </div>
-         <section>
-            <a href="../index.html">Inicio</a>
-        </section>
+       <section id="productos-container"></section>
     </main>
+    <footer class="footer">
+        <h4>TodoTorneos</h5>
+        <a href="#">Contacto</a>
+        <a href="/index.html">Inicio</a>      
+    </footer>
+
 </body>
 </html>

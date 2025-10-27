@@ -1,0 +1,27 @@
+
+const equipos = [
+  {
+    nombre: "Parma Sur", jugados: 11, ganados: 7, empates: 3, derrotas: 1, puntos: 24, posicion: 1,
+  },
+  {
+    nombre: "Los Euca", jugados: 11, ganados: 6, empates: 3, derrotas: 2, puntos: 21, posicion: 2,
+  },
+  {
+    nombre: "El rejunte", jugados: 11, ganados: 6, empates: 1, derrotas: 4, puntos: 19, posicion: 3,
+  },
+  {
+    nombre: "Torino", jugados: 11, ganados: 5, empates: 3, derrotas: 3, puntos: 18, posicion: 4,
+  },
+  {
+    nombre: "Magios", jugados: 11, ganados: 5, empates: 3, derrotas: 3, puntos: 18, posicion: 5,
+  },
+  {
+    nombre: "Alvarado Fc", jugados: 11, ganados: 4, empates: 2, derrotas: 5, puntos: 14, posicion: 6,
+  },
+  {
+    nombre: "Madagascar", jugados: 11, ganados: 3, empates: 2, derrotas: 6, puntos: 11, posicion: 7,
+  },
+  {
+    nombre: "Viejo estado", jugados: 11, ganados: 1, empates: 5, derrotas: 5, puntos: 8, posicion: 8,
+  },
+]

@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/js/premios.js"></script>
+    <script src="/js/equipos.js"></script>
     <script defer src="/js/main.js"></script>
     <title>TodoTorneos</title>
     <link rel="icon" href="/assets/images.png" type="image/x-icon">
@@ -10,7 +12,10 @@
 </head>
 <body>
     <header>        
-        <h3>TodoTorneos</h3>
+        <nav>
+            <h3>TodoTorneos</h3>
+            <a id="cart" href="./pages/premios.html"><img src="./assets/premios.png" alt="premios"><span id="cuenta-premios">0</span></a>
+        </nav>
     </header>
 
     <main>
@@ -39,7 +44,7 @@
         </div>
             <div class="card-container">
                 <article class="card1"><a href="#">Fotos torneo</a></article>
-                <article class="card2"><a href="">Suspenciones</a></article>
+                <article class="card2"><a href="#">Suspenciones</a></article>
                 <article class="card3"><a href="./pages/premios.html">Canjear Premios</a></article>
             </div>
     </main>
@@ -47,8 +52,7 @@
     <footer class="footer">
         <h4>TodoTorneos</h5>
         <a href="#">Contacto</a>
-        <a href="#">Inicio</a>
-        
+        <a href="#">Inicio</a>      
     </footer>
 </body>
 </html>
