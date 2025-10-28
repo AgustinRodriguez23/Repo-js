@@ -126,7 +126,23 @@ table {
 }
 
 #productos-container div img{
-    height: 300px;
+    width: 100%;
+}
+
+#productos-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-producto {
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    background-color: rgba(203, 181, 181, 0.63);
+    img {
+        padding: 20px 10px;
+    }
 }
 
 @media (max-width: 480px) {

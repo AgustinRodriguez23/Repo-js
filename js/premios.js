@@ -3,7 +3,7 @@ const premios = [
         id:1,
         titulo: "jugador del partido",
         premio: "lata de red bull",        
-        img: "./assets/vouchers/1.png",
+        // img: "./assets/vouchers/1.png",
     },
     {
         id:2,
