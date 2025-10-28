@@ -131,11 +131,16 @@ table {
     gap: 16px;
 }
 
+.card-producto:hover {
+    translate: 0 -8px;
+}
+
 .card-producto {
     width: 350px;
     height: 350px;
     text-align: center;
     background-color: rgba(77, 170, 170, 0.862);
+    transition: 200ms;
     img {
         padding: 16px 10px;
     }
@@ -143,6 +148,13 @@ table {
         padding: 4px;
         font-size: 20px;
         font-weight: bold;
+    }
+     button:hover {
+        color: orange;
+    }
+    button {
+        border-radius: 4px;
+        padding: 3px 5px;
     }
 }
 
