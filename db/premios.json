@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "titulo": "jugador del partido"
+  },
+  {
+    "id": 2,
+    "titulo": "equipo de la fecha"
+  },
+  {
+    "id": 3,
+    "titulo": "jugador del mes"
+  },
+  {
+    "id": 4,
+    "titulo": "jugador del torneo"
+  },
+  {
+    "id": 5,
+    "titulo": "equipo del mes"
+  },
+  {
+    "id": 6,
+    "titulo": "arquero del torneo"
+  },
+  {
+    "id": 7,
+    "titulo": "equipo campeon"
+  },
+  {
+    "id": 8,
+    "titulo": "equipo subcampeon"
+  },
+  {
+    "id": 9,
+    "titulo": "premio participacion"
+  }
+]
