@@ -44,7 +44,7 @@ function tablaEquipos (equiposArray) {
   })
 }
 
-   
+function inscribirEquipo(){   
 const formulario = document.getElementById("miFormulario")
 formulario.addEventListener("submit", function (event) {
     event.preventDefault()
@@ -57,9 +57,11 @@ formulario.addEventListener("submit", function (event) {
     localStorage.setItem ("nuevoEquipo", JSON.stringify(datosEquipo))
     formulario.reset()
 })
+}
+inscribirEquipo()
 
 
-let contenedorTarjetas = document.getElementById("productos-container")
+let contenedorVouchers = document.getElementById("productos-container")
 function tarjetasPremios (productos){
   productos.forEach(premio => {
     const nuevoPremio = document.createElement("div")
@@ -69,7 +71,8 @@ function tarjetasPremios (productos){
       <h3>${premio.titulo}</h3>
       <button>agregar al carrito</button> 
     `
-    contenedorTarjetas.appendChild(nuevoPremio)
+    contenedorVouchers.appendChild(nuevoPremio)
+    nuevoPremio.getElementsByTagName("button")[0].addEventListener("click",()=> agregarAlCarrito(premio)) 
   })
 }
 
