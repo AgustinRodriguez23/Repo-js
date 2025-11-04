@@ -56,7 +56,12 @@ formulario.addEventListener("submit", function (event) {
 
     localStorage.setItem ("nuevoEquipo", JSON.stringify(datosEquipo))
     formulario.reset()
-})
+    Swal.fire({
+      title: "equipo inscripto!!",
+      icon: "success",
+      draggable: true
+    });
+  })
 }
 inscribirEquipo()
 
