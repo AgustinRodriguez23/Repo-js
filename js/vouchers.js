@@ -16,8 +16,7 @@ function agregarAlCarrito(producto) {
             nuevoCarrito[indiceProducto].cantidad ++
             cuenta = nuevoCarrito[indiceProducto].cantidad
         }       
-            localStorage.setItem("premios",JSON.stringify(nuevoCarrito))
-            
+            localStorage.setItem("premios",JSON.stringify(nuevoCarrito))            
     }
     numeroCarrito()
     return cuenta

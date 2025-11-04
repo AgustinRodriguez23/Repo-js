@@ -54,7 +54,7 @@ function CurrentTotales() {
 
 function CarritoVacio() {
     const productos = JSON.parse(localStorage.getItem("premios"))
-    carritoVacio.classList.toggle("escondido",(productos && productos.length>0))
+    carritoVacio.classList.toggle("disable",(productos && productos.length>0))
 }
 
 CarritoVacio()
