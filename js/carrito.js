@@ -1,35 +1,69 @@
 
-function agregarAlCarrito(producto) {
-    const carrito = JSON.parse(localStorage.getItem("premios")) || []
-    const nuevoCarrito = carrito
-    if(!carrito){
-        const nuevoProducto = uevoProductoParaCarrito(producto)
-        localStorage.setItem("premios",JSON.stringify((nuevoProducto)))
-        console.log(nuevoProducto)
-    } else {
-        const indiceProducto = carrito.findIndex(premio => premio.id === producto.id)
-        console.log(indiceProducto)
-     if(indiceProducto === -1){         
-            nuevoCarrito.push(nuevoProductoParaCarrito(producto))
-        } else {
-            nuevoCarrito[indiceProducto].cantidad ++
-        }       
-            localStorage.setItem("premios",JSON.stringify(nuevoCarrito))
+const contenedorVouchers = document.getElementById("productos-container")
+const unidadesElement = document.getElementById("unidades")
+const carritoVacio = document.getElementById("carrito-vacio")
+const reiniciarCarritoButton = document.getElementById("reiniciar")
+
+function tarjetasPremios (){
+    contenedorVouchers.innerHTML = ""
+    const productos = JSON.parse(localStorage.getItem("premios"))
+    console.log(productos)
+    if (productos && productos.length > 0) {
+    productos.forEach(premio => {
+    const nuevoPremio = document.createElement("div")
+    nuevoPremio.classList = "card-producto"
+    nuevoPremio.innerHTML = `
+        <img src="../assets/vouchers/${premio.id}.png">
+        <h3>${premio.titulo}</h3>
+        <div>
+        <button class="boton-carrito">-</button>
+        <span class="cant">${premio.cantidad}</span>
+        <button class="boton-carrito">+</button>
+        </div>
+    `
+    contenedorVouchers.appendChild(nuevoPremio)
+    nuevoPremio
+    .getElementsByTagName("button")[1].addEventListener("click",(e)=> {        
+        const cuentaElement = e.target.parentElement.getElementsByTagName("span")[0]
+        cuentaElement.innerText = agregarAlCarrito(premio)
+        CurrentTotales()       
+    })
+    nuevoPremio
+    .getElementsByTagName("button")[0].addEventListener("click",(e)=> {
+        restarAlCarrito(premio)
+        tarjetasPremios ()
+        CurrentTotales()
+    })
+  })
+ }
+}
+
+tarjetasPremios()
+CurrentTotales()
+
+function CurrentTotales() {
+    const productos = JSON.parse(localStorage.getItem("premios"))
+    let unidades = 0
+    if(productos && productos.length >0){
+        productos.forEach(producto =>{
+            unidades += producto.cantidad
+        })
+        unidadesElement.innerText = unidades
     }
-    numeroCarrito()
 }
 
-function nuevoProductoParaCarrito(producto){
-    const nuevoProducto = producto
-    nuevoProducto.cantidad = 1
-    return nuevoProducto
+function CarritoVacio() {
+    const productos = JSON.parse(localStorage.getItem("premios"))
+    carritoVacio.classList.toggle("escondido",(productos && productos.length>0))
 }
 
-const cuentaPremios = document.getElementById("cuenta-premios")
-function numeroCarrito(){
-    const carrito = JSON.parse(localStorage.getItem("premios"))
-    const cuenta = carrito.reduce((acum, current) => acum+current.cantidad,0)
-    cuentaPremios.innerText = cuenta
-}
+CarritoVacio()
 
-numeroCarrito()
+
+reiniciarCarritoButton.addEventListener("click", reiniciarCarrito)
+function reiniciarCarrito() {
+    localStorage.removeItem("premios")
+    CurrentTotales()
+    tarjetasPremios ()
+    location.reload()
+}

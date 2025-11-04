@@ -1,0 +1,95 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover:not(#cart) {
+    color: rgb(203, 121, 13);
+}
+
+h3 {
+    font-size: 20px;
+    width: 140px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+header nav img {
+    height: 25px;
+}
+
+#cuenta-premios {
+    border-radius: 100%;
+    display: inline-block;
+    width: 20px;
+}
+
+header {
+    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 4%, rgba(0, 212, 255, 1) 100%);
+    color: white;
+    padding: 24px;
+}
+
+.footer {
+    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 4%, rgba(0, 212, 255, 1) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    text-align: end;
+    font-size: 12px;
+}
+
+#productos-container {
+    width: 500px;
+    margin: auto;
+}
+
+.card-producto {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+.card-producto img {
+    height: 100px;
+    aspect-ratio: 1.5;
+}
+
+#totales {
+    text-align: center;
+    margin-bottom: 16px;
+    button {
+        border-radius: 4px;
+        padding: 2px;
+    }
+}
+
+#carrito-vacio {
+    text-align: center;
+    margin: 10px;
+    a {
+        text-decoration: underline;
+    } 
+}
+
+.escondido {
+    display: none;
+}
+
+.boton-carrito {
+    padding: 0px 3px;
+}
