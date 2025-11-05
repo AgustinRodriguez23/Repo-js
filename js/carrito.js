@@ -7,7 +7,6 @@ const reiniciarCarritoButton = document.getElementById("reiniciar")
 function tarjetasPremios (){
     contenedorVouchers.innerHTML = ""
     const productos = JSON.parse(localStorage.getItem("premios"))
-    console.log(productos)
     if (productos && productos.length > 0) {
     productos.forEach(premio => {
     const nuevoPremio = document.createElement("div")
