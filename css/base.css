@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:wght@400;600;700&display=swap');
+
+:root {
+  --color-dark: #0a0a1a;
+  --color-navy: #0d0d2b;
+  --color-blue: #1a1aff;
+  --color-cyan: #00d4ff;
+  --color-accent: #f0a500;
+  --color-accent-hover: #ffbe33;
+  --color-bg: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-text: #1a1a2e;
+  --color-muted: #6b7280;
+  --color-border: #e2e8f0;
+  --gradient-header: linear-gradient(135deg, var(--color-dark) 0%, var(--color-navy) 40%, #003366 100%);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.08);
+  --shadow-card-hover: 0 12px 40px rgba(0,0,0,0.14);
+  --radius: 12px;
+  --transition: 220ms ease;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', Georgia, serif;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover:not(#cart):not(.footer a) {
+  color: var(--color-accent);
+}
+
+header {
+  background: var(--gradient-header);
+  color: white;
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(90deg, #fff 0%, var(--color-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50px;
+  padding: 6px 14px 6px 10px;
+  transition: background var(--transition);
+}
+
+#cart:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+header nav img {
+  height: 22px;
+  filter: brightness(0) invert(1);
+}
+
+#cuenta-premios {
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  min-width: 18px;
+  text-align: center;
+}
+
+.footer {
+  background: var(--gradient-header);
+  color: rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 32px;
+  font-size: 13px;
+  margin-top: auto;
+}
+
+.footer .brand {
+  font-size: 18px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer a {
+  color: rgba(255,255,255,0.7);
+  transition: color var(--transition);
+}
+
+.footer a:hover {
+  color: var(--color-cyan);
+}
+
+main {
+  flex: 1;
+}

@@ -1,64 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script defer src="/js/main.js"></script>
-    <script defer src="/js/vouchers.js"></script>
-    <title>TodoTorneos</title>
-    <link rel="icon" href="/assets/images.png" type="image/x-icon">
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TodoTorneos</title>
+  <link rel="icon" href="./assets/images.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header>        
-        <nav>
-            <h3>TodoTorneos</h3>
-            <a id="cart" href="./pages/carrito.html"><img src="./assets/premios.png" alt="premios"><span id="cuenta-premios">0</span></a>
-        </nav>
-    </header>
 
-    <main>
-        <div>
-            <h2 class="title-ins">Inscribir equipo proxima edicion</h2>
-            <article>
-                <form id="miFormulario" class="formulario">
-                <label for="nombre">Nombre capitan:</label>
-                <input type="text" id="nombre" name="nombre">
+  <header>
+    <nav>
+      <a href="./index.html" class="brand">TodoTorneos</a>
+      <a id="cart" href="./pages/carrito.html" aria-label="Ver carrito de premios">
+        <img src="./assets/premios.png" alt="">
+        <span id="cuenta-premios">0</span>
+      </a>
+    </nav>
+  </header>
 
-                <label for="nombre">Nombre equipo:</label>
-                <input type="text" id="equipo" name="nombre">
+  <div class="hero">
+    <h1>Liga del Sur</h1>
+    <p>Temporada 2025 · En curso</p>
+  </div>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </article>
-        </div>        
-        <div>
-            <h2 class="liga">Actualmente disputando liga del sur</h2>
-        <section id="section" class="tabla">
-        </section>
-        </div>
-            <div class="card-container">
-                <article class="card1"><a href="#">Fotos torneo</a></article>
-                <article class="card2"><a href="#">Suspenciones</a></article>
+  <main>
+    <div class="page-content">
+      <section>
+        <h2 class="section-title">Inscribir equipo</h2>
+        <div class="form-card">
+          <form id="miFormulario" class="formulario" novalidate>
+            <div class="form-group">
+              <label for="nombre">Nombre del capitán</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan García" autocomplete="name">
             </div>
-            <section id="productos-container">
-            </section>
-    </main>
+            <div class="form-group">
+              <label for="equipo">Nombre del equipo</label>
+              <input type="text" id="equipo" name="equipo" placeholder="Ej: Los Guerreros">
+            </div>
+            <div class="form-group">
+              <label for="email">Email de contacto</label>
+              <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required autocomplete="email">
+            </div>
+            <button type="submit" class="btn-primary">Enviar inscripción</button>
+          </form>
+        </div>
+      </section>
 
-    <footer class="footer">
-        <h4>TodoTorneos</h5>
-        <a href="/pages/carrito.html">Carrito</a>
-        <a href="#">Inicio</a>      
-    </footer>
+      <section>
+        <h2 class="section-title">Posiciones</h2>
+        <div class="tabla-wrapper">
+          <section id="section"></section>
+        </div>
+      </section>
 
-    <!-- SWEETALERT -->
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-     <!-- BOOTSTRAP JS -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+      <section>
+        <h2 class="section-title">Secciones</h2>
+        <div class="quick-links">
+          <a href="#" class="quick-card">
+            <div class="icon">📸</div>
+            <span>Fotos del torneo</span>
+          </a>
+          <a href="#" class="quick-card">
+            <div class="icon">🟥</div>
+            <span>Suspensiones</span>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Premios disponibles</h2>
+        <div id="productos-container"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="./index.html" class="brand">TodoTorneos</a>
+    <div class="footer-links">
+      <a href="./index.html">Inicio</a>
+      <a href="./pages/carrito.html">Carrito</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+  <script src="./js/vouchers.js"></script>
+  <script src="./js/main.js"></script>
 </body>
 </html>

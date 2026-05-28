@@ -1,174 +1,296 @@
+@import url('./base.css');
 
-* {
-    padding: 0;
-    margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.hero {
+  background: var(--gradient-header);
+  color: white;
+  padding: 60px 32px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-a {
-    color: black;
-    text-decoration: none;
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(0,212,255,0.15) 0%, transparent 60%);
+  pointer-events: none;
 }
 
-a:hover:not(#cart) {
-    color: rgb(203, 121, 13);
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 8vw, 72px);
+  letter-spacing: 4px;
+  background: linear-gradient(90deg, #fff 30%, var(--color-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
 }
 
-nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.hero p {
+  color: rgba(255,255,255,0.65);
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-header nav img {
-    height: 25px;
+.page-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
-#cuenta-premios {
-    border-radius: 100%;
-    display: inline-block;
-    width: 20px;
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: var(--color-navy);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.title-ins {
-    font-size: 20px;
-    font-weight: bold;
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-cyan), transparent);
 }
 
-h3 {
-    text-align: center;
-}
-
-h2 {
-    padding: 24px;
-    text-align: center;
-}
-
-.liga {
-    margin-top: 64px;
-    margin-bottom: 16px;
-}
-
-header {
-    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 4%, rgba(0, 212, 255, 1) 100%);
-    color: white;
-    padding: 24px;
-}
-
-.footer {
-    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 4%, rgba(0, 212, 255, 1) 100%);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    text-align: end;
-    font-size: 12px;
-}
-
-main {
-    padding: 32px;
-}
-
-table {
-    margin: 0 auto; 
-    width: 50%;
-    border: 2px rgba(2, 0, 8, 0.801) solid;
-    text-align: center;
-    padding: 8px;
-}
-
-.card-container {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: space-between;
-    margin: 64px 56px;
-    a {
-        text-decoration: none;
-    }
-}
-
-.card1 {
-    background-color: goldenrod;
-    border-radius: 8px;
-    padding: 24px 42px;
-}
-
-.card2 {
-    background-color: goldenrod;
-    border-radius: 8px;
-    padding: 24px 42px;
-}
-
-.premios {
-    margin: 0 auto; 
-    width: 50%;
-    text-align: center;
-    h5 {
-        margin: 16px;
-    }
+.form-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  max-width: 480px;
 }
 
 .formulario {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    margin: 12px 420px;
-    border: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-#productos-container div img{
-    width: 100%;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-muted);
+}
+
+.form-group input {
+  padding: 10px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: 'Nunito', sans-serif;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--color-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-cyan));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: opacity var(--transition), transform var(--transition);
+  align-self: flex-start;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.tabla-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+.tabla-liga {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  font-size: 14px;
+}
+
+.tabla-liga thead {
+  background: var(--gradient-header);
+  color: white;
+}
+
+.tabla-liga thead th {
+  padding: 14px 16px;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+.tabla-liga thead th:first-child {
+  text-align: left;
+  padding-left: 20px;
+}
+
+.tabla-liga tbody tr {
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition);
+}
+
+.tabla-liga tbody tr:hover {
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.tabla-liga tbody td {
+  padding: 12px 16px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.tabla-liga tbody td:first-child {
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+.pos-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.pos-1 { background: #FFD700; color: #333; }
+.pos-2 { background: #C0C0C0; color: #333; }
+.pos-3 { background: #CD7F32; color: white; }
+
+.quick-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.quick-card {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  box-shadow: var(--shadow-card);
+  border: 2px solid transparent;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  cursor: pointer;
+}
+
+.quick-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.quick-card .icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.quick-card span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: var(--color-navy);
 }
 
 #productos-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.card-producto:hover {
-    translate: 0 -8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .card-producto {
-    width: 350px;
-    height: 350px;
-    text-align: center;
-    background-color: rgba(77, 170, 170, 0.862);
-    transition: 200ms;
-    img {
-        padding: 16px 10px;
-    }
-    h3 { 
-        padding: 4px;
-        font-size: 20px;
-        font-weight: bold;
-    }
-     button:hover {
-        color: orange;
-    }
-    button {
-        border-radius: 4px;
-        padding: 3px 5px;
-    }
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px 20px;
+  transition: transform var(--transition), box-shadow var(--transition);
+  border: 2px solid transparent;
 }
 
-@media (max-width: 480px) {
-    .card-container {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-    }
-
-.formulario {
-        margin: auto;
-    }
-
-.tabla {
-        font-size: 12px;
+.card-producto:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(0,212,255,0.3);
 }
+
+.card-producto img {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  margin-bottom: 14px;
+}
+
+.card-producto h3 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-navy);
+  margin-bottom: 16px;
+}
+
+.card-producto .btn-agregar {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.card-producto .btn-agregar:hover {
+  background: var(--color-accent-hover);
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 40px 20px 56px; }
+  .page-content { padding: 32px 16px; gap: 48px; }
+  .quick-links { grid-template-columns: 1fr; }
+  .form-card { padding: 24px 16px; }
+  .tabla-liga thead th, .tabla-liga tbody td { padding: 10px 8px; font-size: 12px; }
 }

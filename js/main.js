@@ -1,102 +1,151 @@
 
-const URL = "./db/equipos.json"
-const URL2 = "./db/premios.json"
+const URL_EQUIPOS = "./db/equipos.json";
+const URL_PREMIOS = "./db/premios.json";
 
-function cargarEquipos() {
-    const errorEquipos = "Error al cargar"
-    fetch(URL)
-        .then(response => response.json())
-        .then(data => {
-          tablaEquipos(data)
-        })
-        .catch()
-        .finally()
-} 
-cargarEquipos()
+async function cargarEquipos() {
+  const section = document.getElementById("section");
+  if (!section) return;
 
-let section = document.getElementById ("section")
-function tablaEquipos (equiposArray) {
-  equiposArray.forEach(equipo => {
-    const card = document.createElement ("div")
-    card.innerHTML = `<table>
-                        <thead>
-                          <tr>
-                            <th>Equipo</th>
-                            <th>Jugados</th>
-                            <th>Ganados</th>
-                            <th>Empates</th>
-                            <th>Derrotas</th>
-                            <th>Puntos</th>
-                            <th>Pos</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                              <td>${equipo.nombre}</td>
-                              <td>${equipo.jugados}</td>
-                              <td>${equipo.ganados}</td>
-                              <td>${equipo.empates}</td>
-                              <td>${equipo.derrotas}</td>
-                              <td>${equipo.puntos}</td>
-                              <td>${equipo.posicion}</td>
-                            </tr>`
-    section.appendChild(card)
-    
-  })
+  try {
+    const response = await fetch(URL_EQUIPOS);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    renderTabla(data, section);
+  } catch (err) {
+    section.innerHTML = `<p style="color:red;text-align:center;padding:16px;">
+      Error al cargar los equipos. Intentá de nuevo más tarde.
+    </p>`;
+    console.error("cargarEquipos:", err);
+  }
 }
 
-function inscribirEquipo(){   
-const formulario = document.getElementById("miFormulario")
-formulario.addEventListener("submit", function (event) {
-    event.preventDefault()
+function renderTabla(equipos, contenedor) {
+  const ordenados = [...equipos].sort((a, b) => a.posicion - b.posicion);
+  const tabla = document.createElement("table");
+  tabla.className = "tabla-liga";
 
-    const nombre = document.getElementById("nombre").value
-    const email = document.getElementById("email").value
-    const equipoInscripto = document.getElementById("equipo").value
-    const datosEquipo = {nombre, email, equipoInscripto}
+  tabla.innerHTML = `
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>J</th>
+        <th>G</th>
+        <th>E</th>
+        <th>D</th>
+        <th>Pts</th>
+        <th>Pos</th>
+      </tr>
+    </thead>
+    <tbody>
+      ${ordenados.map((eq) => `
+        <tr>
+          <td>${eq.nombre}</td>
+          <td>${eq.jugados}</td>
+          <td>${eq.ganados}</td>
+          <td>${eq.empates}</td>
+          <td>${eq.derrotas}</td>
+          <td><strong>${eq.puntos}</strong></td>
+          <td>${posBadge(eq.posicion)}</td>
+        </tr>
+      `).join("")}
+    </tbody>
+  `;
 
-    localStorage.setItem ("nuevoEquipo", JSON.stringify(datosEquipo))
-    formulario.reset()
-    Swal.fire({
-      title: "equipo inscripto!!",
-      icon: "success",
-      draggable: true
-    });
-  })
+  contenedor.innerHTML = "";
+  contenedor.appendChild(tabla);
 }
-inscribirEquipo()
 
-
-let contenedorVouchers = document.getElementById("productos-container")
-function tarjetasPremios (productos){
-  productos.forEach(premio => {
-    const nuevoPremio = document.createElement("div")
-    nuevoPremio.classList = "card-producto"
-    nuevoPremio.innerHTML = `
-      <img src="./assets/vouchers/${premio.id}.png">
-      <h3>${premio.titulo}</h3>
-      <button>agregar al carrito</button> 
-    `
-    contenedorVouchers.appendChild(nuevoPremio)
-    nuevoPremio.getElementsByTagName("button")[0].addEventListener("click",()=> agregarAlCarrito(premio)) 
-  })
+function posBadge(pos) {
+  if (pos <= 3) {
+    return `<span class="pos-badge pos-${pos}">${pos}</span>`;
+  }
+  return `<span>${pos}</span>`;
 }
 
 
-async function obtenerPremios() {
-  
-    const errorPremios = "Error al cargar"
-    try {
-      const response = await fetch(URL2)
-      const data = await response.json()
-      tarjetasPremios(data)
-    } catch (err) {
-        document.body.append(errorPremios, err)
-    } finally { 
+function iniciarFormulario() {
+  const formulario = document.getElementById("miFormulario");
+  if (!formulario) return;
+
+  formulario.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const nombre = document.getElementById("nombre").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const equipoInscripto = document.getElementById("equipo").value.trim();
+
+    if (!nombre || !equipoInscripto) {
+      Swal.fire({
+        title: "Campos incompletos",
+        text: "Por favor completá todos los campos.",
+        icon: "warning",
+      });
+      return;
     }
+
+    localStorage.setItem(
+      "nuevoEquipo",
+      JSON.stringify({ nombre, email, equipoInscripto })
+    );
+    formulario.reset();
+
+    Swal.fire({
+      title: "¡Equipo inscripto!",
+      text: `"${equipoInscripto}" fue registrado correctamente.`,
+      icon: "success",
+      confirmButtonColor: "#1a1aff",
+    });
+  });
 }
 
-obtenerPremios()
+async function cargarPremios() {
+  const contenedor = document.getElementById("productos-container");
+  if (!contenedor) return;
 
+  try {
+    const response = await fetch(URL_PREMIOS);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const data = await response.json();
+    renderVouchers(data, contenedor);
+  } catch (err) {
+    contenedor.innerHTML = `<p style="color:red;text-align:center;padding:16px;">
+      Error al cargar los premios. Intentá de nuevo más tarde.
+    </p>`;
+    console.error("cargarPremios:", err);
+  }
+}
 
+function renderVouchers(premios, contenedor) {
+  contenedor.innerHTML = "";
 
+  premios.forEach((premio) => {
+    const card = document.createElement("div");
+    card.className = "card-producto";
+    card.innerHTML = `
+      <img src="./assets/vouchers/${premio.id}.png" alt="${premio.titulo}">
+      <h3>${premio.titulo}</h3>
+      <button class="btn-agregar" aria-label="Agregar ${premio.titulo} al carrito">
+        Agregar al carrito
+      </button>
+    `;
 
+    card.querySelector(".btn-agregar").addEventListener("click", () => {
+      agregarAlCarrito(premio);
+      Swal.fire({
+        toast: true,
+        position: "bottom-end",
+        icon: "success",
+        title: `"${premio.titulo}" agregado`,
+        showConfirmButton: false,
+        timer: 1800,
+        timerProgressBar: true,
+      });
+    });
+
+    contenedor.appendChild(card);
+  });
+}
+
+cargarEquipos();
+iniciarFormulario();
+cargarPremios();

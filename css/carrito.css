@@ -1,95 +1,203 @@
+@import url('./base.css');
 
-* {
-    padding: 0;
-    margin: 0;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.carrito-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 24px;
 }
 
-a {
-    color: black;
-    text-decoration: none;
+.carrito-page h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: var(--color-navy);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-a:hover:not(#cart) {
-    color: rgb(203, 121, 13);
-}
-
-h3 {
-    font-size: 20px;
-    width: 140px;
-}
-
-nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-header nav img {
-    height: 25px;
-}
-
-#cuenta-premios {
-    border-radius: 100%;
-    display: inline-block;
-    width: 20px;
-}
-
-header {
-    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 4%, rgba(0, 212, 255, 1) 100%);
-    color: white;
-    padding: 24px;
-}
-
-.footer {
-    background: linear-gradient(90deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 4%, rgba(0, 212, 255, 1) 100%);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    text-align: end;
-    font-size: 12px;
-}
-
-#productos-container {
-    width: 500px;
-    margin: auto;
-}
-
-.card-producto {
-    display: flex;
-    gap: 22px;
-    align-items: center;
-}
-
-.card-producto img {
-    height: 100px;
-    aspect-ratio: 1.5;
-}
-
-#totales {
-    text-align: center;
-    margin-bottom: 16px;
-    button {
-        border-radius: 4px;
-        padding: 2px;
-    }
+.carrito-page h1::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-cyan), transparent);
 }
 
 #carrito-vacio {
-    text-align: center;
-    margin: 10px;
-    a {
-        text-decoration: underline;
-    } 
+  text-align: center;
+  padding: 64px 24px;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
 }
 
-.disable {
-    display: none;
+#carrito-vacio p {
+  font-size: 16px;
+  color: var(--color-muted);
+  margin-bottom: 16px;
+}
+
+#carrito-vacio a {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--color-blue), var(--color-cyan));
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  transition: opacity var(--transition);
+}
+
+#carrito-vacio a:hover { opacity: 0.85; }
+
+.disable { display: none !important; }
+
+#productos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.card-producto {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 20px;
+  transition: box-shadow var(--transition);
+}
+
+.card-producto:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card-producto img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--color-bg);
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.card-producto h3 {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--color-navy);
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-bg);
+  border-radius: 8px;
+  padding: 6px 10px;
 }
 
 .boton-carrito {
-    padding: 0px 3px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-border);
+  color: var(--color-text);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), color var(--transition);
+}
+
+.boton-carrito:hover {
+  background: var(--color-accent);
+  color: var(--color-dark);
+}
+
+.cant {
+  font-size: 15px;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+#totales {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+#totales p {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+#totales p span {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  color: var(--color-navy);
+  margin-left: 4px;
+}
+
+.totales-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-download {
+  background: linear-gradient(135deg, var(--color-blue), var(--color-cyan));
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: opacity var(--transition);
+}
+
+.btn-download:hover { opacity: 0.88; }
+
+.btn-reset {
+  background: transparent;
+  color: #e53935;
+  border: 2px solid #e53935;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.btn-reset:hover {
+  background: #e53935;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .carrito-page { padding: 32px 16px; }
+  .card-producto { flex-wrap: wrap; }
+  #totales { flex-direction: column; align-items: flex-start; }
+  .totales-actions { width: 100%; }
+  .btn-download, .btn-reset { flex: 1; text-align: center; }
 }

@@ -1,50 +1,45 @@
+const STORAGE_KEY = "premios";
 
 function agregarAlCarrito(producto) {
-    const carrito = JSON.parse(localStorage.getItem("premios")) || []
-    const nuevoCarrito = carrito
-    let cuenta = 0
-    if(!carrito){
-        const nuevoProducto = uevoProductoParaCarrito(producto)
-        localStorage.setItem("premios",JSON.stringify((nuevoProducto)))
-        cuenta = 1
-    } else {
-        const indiceProducto = carrito.findIndex(premio => premio.id === producto.id)
-     if(indiceProducto === -1){         
-            nuevoCarrito.push(nuevoProductoParaCarrito(producto))
-            cuenta = 1
-        } else {
-            nuevoCarrito[indiceProducto].cantidad ++
-            cuenta = nuevoCarrito[indiceProducto].cantidad
-        }       
-            localStorage.setItem("premios",JSON.stringify(nuevoCarrito))            
-    }
-    numeroCarrito()
-    return cuenta
+  const carrito = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  const indice = carrito.findIndex((p) => p.id === producto.id);
+  let cantidadActual;
+
+  if (indice === -1) {
+    carrito.push({ ...producto, cantidad: 1 });
+    cantidadActual = 1;
+  } else {
+    carrito[indice].cantidad++;
+    cantidadActual = carrito[indice].cantidad;
+  }
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
+  actualizarContadorHeader();
+  return cantidadActual;
 }
 
 function restarAlCarrito(producto) {
-    const carrito = JSON.parse(localStorage.getItem("premios")) 
-    const indiceProducto = carrito.findIndex(premio => premio.id === producto.id)
-    if(carrito[indiceProducto].cantidad === 1){
-        carrito.splice(indiceProducto,1)       
-    } else {
-        carrito[indiceProducto].cantidad--       
-    }
-    localStorage.setItem("premios",JSON.stringify(carrito))
-    numeroCarrito()   
+  const carrito = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  const indice = carrito.findIndex((p) => p.id === producto.id);
+  if (indice === -1) return;
+
+  if (carrito[indice].cantidad === 1) {
+    carrito.splice(indice, 1);
+  } else {
+    carrito[indice].cantidad--;
+  }
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
+  actualizarContadorHeader();
 }
 
-function nuevoProductoParaCarrito(producto){
-    const nuevoProducto = producto
-    nuevoProducto.cantidad = 1
-    return nuevoProducto
+function actualizarContadorHeader() {
+  const el = document.getElementById("cuenta-premios");
+  if (!el) return;
+
+  const carrito = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+  const total = carrito.reduce((acc, p) => acc + p.cantidad, 0);
+  el.textContent = total;
 }
 
-const cuentaPremios = document.getElementById("cuenta-premios")
-function numeroCarrito(){
-    const carrito = JSON.parse(localStorage.getItem("premios"))
-    const cuenta = carrito.reduce((acum, current) => acum+current.cantidad,0)
-    cuentaPremios.innerText = cuenta
-}
-
-numeroCarrito()
+actualizarContadorHeader();
