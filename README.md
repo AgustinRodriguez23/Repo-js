@@ -58,7 +58,6 @@ TodoTorneos/
 | [SweetAlert2](https://sweetalert2.github.io/) | Alertas y confirmaciones |
 | Google Fonts | Bebas Neue + Nunito |
 
-
 ---
 
 ## 📦 Datos
@@ -96,6 +95,22 @@ Los datos de equipos y premios están mockeados en archivos JSON locales dentro 
 
 ---
 
+## 💻 Proyecto
+
+Realizado para evaluación final del módulo JavaScript en la carrera de desarrollo full stack en CoderHouse.
+
+---
+
 ## 🙋 Autor
 
-Proyecto personal desarrollado como práctica de frontend vanilla y para incluir en portafolio.
+**Agustín Rodriguez**
+
+---
+
+## 📬 Contacto
+
+¿Querés ver más proyectos o contactarte conmigo?
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/agustin-lihuel-rodr%C3%ADguez-9968b7353/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/AgustinRodriguez23)
+[![Gmail](https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:agustinlihuel@gmail.com)
